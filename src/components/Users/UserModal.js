@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Modal, Form, Input } from 'antd';
-import styles from './UserModal.css';
 
 const FormItem = Form.Item;
 
@@ -13,14 +12,14 @@ class UserEditModal extends Component {
     };
   }
 
-  showModalHandler = (e) => {
+  showModelHandler = (e) => {
     if (e) e.stopPropagation();
     this.setState({
       visible: true,
     });
   };
 
-  hideModalHandler = () => {
+  hideModelHandler = () => {
     this.setState({
       visible: false,
     });
@@ -31,7 +30,7 @@ class UserEditModal extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         onOk(values);
-        this.hideModalHandler();
+        this.hideModelHandler();
       }
     });
   };
@@ -47,14 +46,14 @@ class UserEditModal extends Component {
 
     return (
       <span>
-        <span onClick={this.showModalHandler}>
+        <span onClick={this.showModelHandler}>
           { children }
         </span>
         <Modal
           title="Edit User"
           visible={this.state.visible}
           onOk={this.okHandler}
-          onCancel={this.hideModalHandler}
+          onCancel={this.hideModelHandler}
         >
           <Form horizontal onSubmit={this.okHandler}>
             <FormItem
