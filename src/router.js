@@ -21,6 +21,15 @@ function RouterConfig({ history, app }) {
       },
     },
     {
+      path: '/about',
+      name: 'AboutPage',
+      getComponent(nextState, cb) {
+        require.ensure([], (require) => {
+          cb(null, require('./routes/About'));
+        });
+      },
+    },
+    {
       path: '/users',
       name: 'UsersPage',
       getComponent(nextState, cb) {

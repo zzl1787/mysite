@@ -6,11 +6,7 @@ const SubMenu = Menu.SubMenu;
 
 function Header({ location }) {
   return (
-    <Menu
-      selectedKeys={[location.pathname]}
-      mode="horizontal"
-      theme="dark"
-    >
+    <Menu selectedKeys={[location.pathname]} mode="horizontal" theme="dark">
       <Menu.Item key="/">
         <Link to="/"><Icon type="home" />Home</Link>
       </Menu.Item>
