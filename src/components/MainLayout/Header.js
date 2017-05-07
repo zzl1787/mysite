@@ -14,11 +14,11 @@ function Header({ location }) {
         <Link to="/about"><Icon type="environment-o" />About</Link>
       </Menu.Item>
       <SubMenu title={<span><Icon type="rocket" />Games</span>}>
-        <Menu.Item key="/games/painting">
-          <Link to="/games/painting"><Icon type="picture" />你画我猜</Link>
+        <Menu.Item key="/games/recognizer">
+          <Link to="/recognizer"><Icon type="picture" />你画我猜</Link>
         </Menu.Item>
         <Menu.Item key="/games/gobang">
-          <Link to="/games/gobang"><Icon type="dot-chart" />五子棋</Link>
+          <Link to="/gobang"><Icon type="dot-chart" />五子棋</Link>
         </Menu.Item>
       </SubMenu>
       <Menu.Item key="/users">

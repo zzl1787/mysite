@@ -1,0 +1,16 @@
+
+.normal {
+  font: 15px Tahoma;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+}
+
+.main {
+  padding: 0 8px;
+  flex: 1 0 auto;
+}

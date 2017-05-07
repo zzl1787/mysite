@@ -8,11 +8,11 @@ function IndexPage({ location }) {
   return (
     <MainLayout location={location}>
       <div className={styles.normal}>
-        <h1 className={styles.title}>Hi! Welcome to zhaozhe’s site!</h1>
+        <h1 className={styles.title}>Hi!   Welcome to zhaozhe’s site!</h1>
         <br />
         <div className={styles.welcome} />
         <ul className={styles.list}>
-          <li><Link to="/about">Get Started</Link></li>
+          <li><Link to="/about">Getting Started</Link></li>
         </ul>
       </div>
     </MainLayout>

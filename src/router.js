@@ -24,8 +24,19 @@ function RouterConfig({ history, app }) {
       path: '/about',
       name: 'AboutPage',
       getComponent(nextState, cb) {
+        registerModel(app, require('./models/about'));
         require.ensure([], (require) => {
           cb(null, require('./routes/About'));
+        });
+      },
+    },
+    {
+      path: '/recognizer',
+      name: 'RecognizerPage',
+      getComponent(nextState, cb) {
+        registerModel(app, require('./models/Games/recognizer'));
+        require.ensure([], (require) => {
+          cb(null, require('./routes/Games/Recognizer'));
         });
       },
     },
