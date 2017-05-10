@@ -35,6 +35,7 @@ function RouterConfig({ history, app }) {
       name: 'RecognizerPage',
       getComponent(nextState, cb) {
         registerModel(app, require('./models/Games/recognizer'));
+        registerModel(app, require('./models/Games/sketchpad'));
         require.ensure([], (require) => {
           cb(null, require('./routes/Games/Recognizer'));
         });
