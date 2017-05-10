@@ -10,10 +10,10 @@ function Recognizer(props) {
   function testHandler() {
     let image = pad.getImage();
     let data = new FormData();
-    data.append('file',image);
+    data.append('file', image);
     props.dispatch({
       type: 'recognizer/speculate',
-      payload:data,
+      payload: data,
     });
   }
 
@@ -23,7 +23,7 @@ function Recognizer(props) {
 
   return (
     <div >
-      <SketchPad ref={(node) => pad=node} />
+      <SketchPad ref={(node) => pad = node}/>
       <h1>result: {props.result}</h1>
       <div>
         <Button type="primary" onClick={clearHandler}>重写</Button>

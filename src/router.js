@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from 'dva/router';
+import {Router} from 'dva/router';
 
 const cached = {};
 function registerModel(app, model) {
@@ -9,7 +9,7 @@ function registerModel(app, model) {
   }
 }
 
-function RouterConfig({ history, app }) {
+function RouterConfig({history, app}) {
   const routes = [
     {
       path: '/',
@@ -35,7 +35,6 @@ function RouterConfig({ history, app }) {
       name: 'RecognizerPage',
       getComponent(nextState, cb) {
         registerModel(app, require('./models/Games/recognizer'));
-        registerModel(app, require('./models/Games/sketchpad'));
         require.ensure([], (require) => {
           cb(null, require('./routes/Games/Recognizer'));
         });
@@ -53,7 +52,7 @@ function RouterConfig({ history, app }) {
     },
   ];
 
-  return <Router history={history} routes={routes} />;
+  return <Router history={history} routes={routes}/>;
 }
 
 export default RouterConfig;

@@ -9,7 +9,6 @@ export default class SketchPad extends Component {
   points = [];
 
   static defaultProps = {
-    clear: false,
     width: 300,
     height: 370,
     color: '#0b15a5',
@@ -17,7 +16,6 @@ export default class SketchPad extends Component {
   };
 
   static propTypes = {
-    clear: PropTypes.bool,
     width: PropTypes.number,
     height: PropTypes.number,
     color: PropTypes.string,
