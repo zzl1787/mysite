@@ -14,7 +14,8 @@ export default {
   },
   effects: {
     *speculate({payload}, {call, put}) {
-      const {data} = yield call(recognizerService.speculateImage);
+      console.log(payload);
+      const {data} = yield call(recognizerService.speculateImage,payload);
       yield put({
         type: 'setResult',
         payload: data.result,

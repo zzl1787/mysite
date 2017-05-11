@@ -9,8 +9,11 @@ function Recognizer(props) {
 
   function testHandler() {
     let image = pad.getImage();
+    // console.log(image);
     let data = new FormData();
+    data.append('key','test');
     data.append('file', image);
+    console.log(data);
     props.dispatch({
       type: 'recognizer/speculate',
       payload: data,
