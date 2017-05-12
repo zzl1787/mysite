@@ -2,6 +2,7 @@ import React from 'react';
 import {Button} from 'antd';
 import {connect} from 'dva';
 import SketchPad from './SketchPad'
+import styles from './Recognizer.css';
 
 function Recognizer(props) {
 
@@ -9,28 +10,28 @@ function Recognizer(props) {
 
   function testHandler() {
     let image = pad.getImage();
-    // console.log(image);
-    let data = new FormData();
-    data.append('key','test');
-    data.append('file', image);
-    console.log(data);
+    let formData = new FormData();
+    formData.append('the_image', image, 'test.png');
     props.dispatch({
       type: 'recognizer/speculate',
-      payload: data,
+      payload: formData,
     });
   }
 
   function clearHandler() {
+    props.dispatch({
+      type: 'recognizer/clearResult',
+    });
     pad.clear();
   }
 
   return (
-    <div >
+    <div className={styles.whole}>
       <SketchPad ref={(node) => pad = node}/>
-      <h1>result: {props.result}</h1>
+      <h3>我猜你写的数字是:  {props.result}</h3>
       <div>
-        <Button type="primary" onClick={clearHandler}>重写</Button>
-        <Button type="primary" onClick={testHandler}>尝试一下</Button>
+        <Button type="danger" onClick={clearHandler} className={styles.clear}>重写</Button>
+        <Button type="primary" onClick={testHandler} className={styles.test}>尝试一下</Button>
       </div>
     </div>
   );
@@ -38,8 +39,6 @@ function Recognizer(props) {
 }
 
 export default connect(({recognizer}) => ({
-  clear: recognizer.clear,
-  image: recognizer.image,
   result: recognizer.result,
 }))(Recognizer);
 

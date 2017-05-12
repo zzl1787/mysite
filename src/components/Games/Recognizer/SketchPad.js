@@ -33,9 +33,14 @@ export default class SketchPad extends Component {
   };
 
   getImage = () => {
-    let image = new Image();
-    image.src = this.canvas.toDataURL("image/png");
-    return image;
+    let data = this.canvas.toDataURL("image/png");
+    data=data.split(',')[1];
+    data=window.atob(data);
+    var ia = new Uint8Array(data.length);
+    for (var i = 0; i < data.length; i++) {
+      ia[i] = data.charCodeAt(i);
+    };
+    return new Blob([ia], {type:"image/png"});
   };
 
   componentDidMount() {
